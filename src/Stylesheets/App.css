@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+i.icon
+{
+    font-size: 2em; 
+}
+
+.Todo{
+  font-size: 30px;
+}
+
+.Divider{
+  padding: 30px;
+}
+
+.Heading{
+  padding: 50px;
+}
+
