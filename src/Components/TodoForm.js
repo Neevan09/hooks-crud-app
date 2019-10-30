@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react' 
+import React, { useState, useEffect, useContext } from "react"
 import TodosContext from '../context';
 
 export default function TodoForm() {
@@ -10,10 +10,10 @@ export default function TodoForm() {
     useEffect(
         () => {
             if (currentTodo.text) {
-                setTodo(currentTodo.text)
-            }
-            else{
-                setTodo("");
+                console.log("currentTodo:   ", currentTodo);
+                setTodo(currentTodo.text);
+            }else{
+                setTodo("")
             }
         }, 
         [currentTodo.id]
@@ -21,16 +21,19 @@ export default function TodoForm() {
 
     const handleSubmit = event => {
         event.preventDefault();
-        if(currentTodo.text){
-            dispatch({type: "UPDATE_TODO", payload: todo});
+        if(currentTodo.text){            
+            dispatch({type: "UPDATE", payload: todo}); 
+            console.log("update text: ", todo);
         }else{
-            dispatch({type: "ADD", payload: todo});
+            dispatch({type: "ADD", payload: todo}); 
+            console.log("New Text: ", todo)
         }       
         setTodo(""); 
+        console.log("after update: ", setTodo(""));
     }
     return (
         <div className="container Divider">
-            <form onSubmit={ handleSubmit }>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     onChange={event => setTodo(event.target.value)}
