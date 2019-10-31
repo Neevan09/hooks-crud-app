@@ -8,47 +8,47 @@ export default function TodoForm() {
     const [todo, setTodo] = useState("");
 
     const { state: { currentTodo = {} }, dispatch } = useContext(TodosContext);
-    
+
     useEffect(
         () => {
             if (currentTodo.text) {
                 console.log("currentTodo:   ", currentTodo);
                 setTodo(currentTodo.text);
-            }else{
+            } else {
                 setTodo("")
             }
-        }, 
+        },
         [currentTodo.id]
-        );
+    );
 
     const handleSubmit = async event => {
         event.preventDefault();
-        if(currentTodo.text){   
+        if (currentTodo.text) {
             const response = await axios.patch(`https://hooks-api.ns7767.now.sh/todos/${currentTodo.id}`, {
-                text: todo
+                text: todo                
             })
-
-            dispatch({type: "UPDATE", payload: response.data}); 
-            console.log("update text: ", todo);
-        }else{
-            const response = await axios.post("https://hooks-api.ns7767.now.sh/todos",{
+            dispatch({ type: "UPDATE", payload: response.data });
+            console.log("update text: ", response.data);
+        } else {
+            const response = await axios.post("https://hooks-api.ns7767.now.sh/todos", {
                 id: uuidv4(),
                 text: todo,
-                complete: false
+                firstName: String
             })
-            dispatch({type: "ADD", payload: response.data}); 
+            dispatch({ type: "ADD", payload: response.data });
             console.log("New Text: ", todo)
-        }       
-        setTodo(""); 
+        }
+        setTodo("");
     }
     return (
         <div className="container Divider">
             <form onSubmit={handleSubmit}>
+                <h1>Add Employee</h1> 
                 <input
                     type="text"
                     onChange={event => setTodo(event.target.value)}
                     value={todo}
-                /> 
+                />
             </form>
         </div>
     );

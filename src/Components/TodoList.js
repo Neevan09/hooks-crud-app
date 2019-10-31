@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function TodoList() {
     const { state, dispatch } = useContext(TodosContext);
-    const title = state.todos.length > 0 ? `${state.todos.length} Blogs` : "Nothing Todo";
+    const title = state.todos.length > 0 ? `Total ${state.todos.length} Employees` : "Nothing Todo";
 
     console.log("state.toods:   ", state.todos);
     return (

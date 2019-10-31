@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "Adam",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "text": "Marry",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "text": "Kenny",
+      "complete": true
+    }
+  ]
+}
