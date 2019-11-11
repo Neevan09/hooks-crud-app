@@ -1,19 +1,28 @@
 {
-  "todos": [
+  "users": [
     {
-      "id": 1,
-      "text": "Adam",
-      "complete": false
+      "id": "1",
+      "firstName": "Marry",
+      "lastName": "Poppins",
+      "email": "Marrypoppins@hotmail.com",
+      "state": "WV",
+      "companyName": "Orn - Kling"
     },
     {
-      "id": 2,
-      "text": "Marry",
-      "complete": false
+      "id": "2",
+      "firstName": "Adam",
+      "lastName": "Gilly",
+      "email": "Adam_Gilly@hotmail.com",
+      "state": "GA",
+      "companyName": "Vandervort - Hamill"
     },
     {
-      "id": 3,
-      "text": "Kenny",
-      "complete": true
+      "id": "3",
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "email": "Harry_potter@hotmail.com",
+      "state": "GA",
+      "companyName": "Vandervort - Hamill"
     }
   ]
 }

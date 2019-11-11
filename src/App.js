@@ -1,37 +1,41 @@
-// import React, { useContext, useReducer } from 'react';
-// import { UserContext } from './index'
+import React, { useState, useContext, useReducer, useEffect } from 'react'
+import TodosContext from './UserService/context'
+import TodosReducer from './Reducers/reducer'
+import UserList from './Components/UserList'  
+import axios from "axios"
+import NewUserForm from './Components/NewUserForm';
 
-// const initialState = {
-//     count: 0
-// }
+const useAPI = endpoint => {
+    const [ data, setData ] = useState([]);
 
-// function reducer(state, action){
-//     switch(action.type){
-//         case "INCREMENT":
-//             return {
-//                 count: state.count + 1
-//             }
-//         case "DECREMENT":
-//             return{
-//                 count: state.count - 1
-//             }
-//         case "RESET":
-//             return initialState;
-//         default:
-//             return initialState;
-//     }
-// }
+    useEffect(() => {
+        getData();
+    }, [])    
 
-// export default function App() {
+    const getData = async () => {
+       const response = await axios.get(endpoint);
+       setData(response.data);
+    }
+    return data;
+} 
+const App = () => {
+    const initialState = useContext(TodosContext);
+    const [ state, dispatch ] = useReducer(TodosReducer, initialState);
+    const saveData = useAPI("https://hooks-api.ns7767.now.sh/users")
 
-//     const [ state, dispatch] = useReducer(reducer, initialState); 
-//     const value = useContext(UserContext);
-//     return (
-//         <div>
-//             Count : {state.count}
-//             <button className="btn-btn-primary" onClick={() => dispatch({type: "INCREMENT"})}>INCREMENT</button>
-//             <button onClick={() => dispatch({type: "DECREMENT"})}>DECREMENT</button>
-//             <button onClick={() => dispatch({type: "RESET"})}>RESET</button>
-//         </div>       
-//     );
-// }
+    useEffect(() => {
+        dispatch({
+            type: "GET_DATA",
+            payload: saveData
+        })    
+    }, [saveData])
+
+    return (
+        <TodosContext.Provider value = {{ state, dispatch }}> 
+            <NewUserForm />
+            <UserList />
+        </TodosContext.Provider>
+    )
+}
+
+export default App;
