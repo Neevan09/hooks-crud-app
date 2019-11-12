@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import UserContext from '../UserService/context';
 import uuidv4 from 'uuid/v4'
 import axios from 'axios'
+import Button from './Button/Button';
 
 const NewUserForm = ({ addUser }) => { 
     const [ firstName, setFirstName ] = useState('');
@@ -81,7 +82,7 @@ const NewUserForm = ({ addUser }) => {
         <div className="container Divider"> 
             <h1> User Details </h1>
             <form onSubmit={handleSubmit}>
-                <label>First Name :</label>
+                <label>First Name :</label> 
                 <input type="text" label="First Name :" placeholder="First Name" required value={firstName} onChange={(event) => setFirstName(event.target.value)} />
                 <label>Last Name :</label>
                 <input type="text" label="Last Name :" placeholder="Last Name" required value={lastName} onChange={(event) => setLastName(event.target.value)} />

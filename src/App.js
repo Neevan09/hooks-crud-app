@@ -4,6 +4,7 @@ import TodosReducer from './Reducers/reducer'
 import UserList from './Components/UserList'  
 import axios from "axios"
 import NewUserForm from './Components/NewUserForm';
+import Button from './Components/Button/Button'
 
 const useAPI = endpoint => {
     const [ data, setData ] = useState([]);
@@ -34,6 +35,7 @@ const App = () => {
         <TodosContext.Provider value = {{ state, dispatch }}> 
             <NewUserForm />
             <UserList />
+            <Button label="Click Me"/>
         </TodosContext.Provider>
     )
 }
