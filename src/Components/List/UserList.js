@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
-import UserContext from '../UserService/context'
-import '../Stylesheets/App.css'
+import UserContext from '../../DataModel/User/data'
+import '../App/styles.css'
 import axios from 'axios';
 
 export default function UserList() {
     const { state, dispatch } = useContext(UserContext);
     const title = state.users.length > 0 ? `Total ${state.users.length} Users` : "No User"; 
  
-
     return (
         <div className="container Divider">
             <h2>{title}</h2>

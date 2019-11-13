@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
-import UserContext from '../UserService/context';
+import UserContext from '../../../DataModel/User/data';
 import uuidv4 from 'uuid/v4'
 import axios from 'axios'
-import Button from './Button/Button';
 
-const NewUserForm = ({ addUser }) => { 
+const NewUser = ({ addUser }) => { 
     const [ firstName, setFirstName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ stateName, setStateName ] = useState('');
@@ -96,4 +95,4 @@ const NewUserForm = ({ addUser }) => {
     );
 }
 
-export default NewUserForm;
+export default NewUser;

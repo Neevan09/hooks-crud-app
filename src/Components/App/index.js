@@ -1,10 +1,9 @@
 import React, { useState, useContext, useReducer, useEffect } from 'react'
-import TodosContext from './UserService/context'
-import TodosReducer from './Reducers/reducer'
-import UserList from './Components/UserList'  
-import axios from "axios"
-import NewUserForm from './Components/NewUserForm';
-import Button from './Components/Button/Button'
+import TodosContext from '../../DataModel/User/data'
+import TodosReducer from '../../Reducers/reducer' 
+import axios from "axios" 
+import NewUser from '../Forms/Users'
+import UserList from '../List/UserList'
 
 const useAPI = endpoint => {
     const [ data, setData ] = useState([]);
@@ -33,9 +32,8 @@ const App = () => {
 
     return (
         <TodosContext.Provider value = {{ state, dispatch }}> 
-            <NewUserForm />
-            <UserList />
-            <Button label="Click Me"/>
+            <NewUser />
+            <UserList />            
         </TodosContext.Provider>
     )
 }

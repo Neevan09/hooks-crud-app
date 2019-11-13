@@ -5,7 +5,7 @@ import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import renderer from 'react-test-render'
 
-//afterEach(cleanup);
+afterEach(cleanup);
 
 it("renders without crahing", () => {
     const div = document.createElement("div");
