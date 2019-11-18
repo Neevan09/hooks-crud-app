@@ -1,9 +1,12 @@
 import React, { useState, useContext, useReducer, useEffect } from 'react'
-import TodosContext from '../../DataModel/User/data'
-import TodosReducer from '../../Reducers/reducer' 
+import UserContext from '../../DataModel/User/data'
+import UserReducer from '../../Reducers/reducer' 
 import axios from "axios" 
-import NewUser from '../Forms/Users'
-import UserList from '../List/UserList'
+import NewUser from '../Forms/Users' 
+import Users from '../List/Users'
+import Header from '../Header'
+import Footer from '../Footer'
+import Navbar from '../Navbar'
 
 const useAPI = endpoint => {
     const [ data, setData ] = useState([]);
@@ -19,8 +22,8 @@ const useAPI = endpoint => {
     return data;
 } 
 const App = () => {
-    const initialState = useContext(TodosContext);
-    const [ state, dispatch ] = useReducer(TodosReducer, initialState);
+    const initialState = useContext(UserContext);
+    const [ state, dispatch ] = useReducer(UserReducer, initialState);
     const saveData = useAPI("https://hooks-api.ns7767.now.sh/users")
 
     useEffect(() => {
@@ -31,10 +34,13 @@ const App = () => {
     }, [saveData])
 
     return (
-        <TodosContext.Provider value = {{ state, dispatch }}> 
-            <NewUser />
-            <UserList />            
-        </TodosContext.Provider>
+        <UserContext.Provider value = {{ state, dispatch }}> 
+            <Header />
+            <Navbar /> 
+            <NewUser />    
+            <Users />     
+            <Footer />            
+        </UserContext.Provider>
     )
 }
 

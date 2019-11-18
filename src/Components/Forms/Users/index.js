@@ -81,15 +81,17 @@ const NewUser = ({ addUser }) => {
         <div className="container Divider"> 
             <h1> User Details </h1>
             <form onSubmit={handleSubmit}>
-                <label>First Name :</label> 
-                <input type="text" label="First Name :" placeholder="First Name" required value={firstName} onChange={(event) => setFirstName(event.target.value)} />
-                <label>Last Name :</label>
-                <input type="text" label="Last Name :" placeholder="Last Name" required value={lastName} onChange={(event) => setLastName(event.target.value)} />
-                <label>State :</label>
-                <input type="text" label="State Name :" placeholder="State" required value={stateName} onChange={(event) => setStateName(event.target.value)} />
-                <label>Company :</label>
-                <input type="text" label="Company Name :" placeholder="Company" required value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
-                <input type="submit" value="Submit" />
+                <div>
+                    <label>First Name :</label> 
+                    <input type="text" label="First Name :" placeholder="First Name" required value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+                    <label>Last Name :</label>
+                    <input type="text" label="Last Name :" placeholder="Last Name" required value={lastName} onChange={(event) => setLastName(event.target.value)} />
+                    <label>State :</label>
+                    <input type="text" label="State Name :" placeholder="State" required value={stateName} onChange={(event) => setStateName(event.target.value)} />
+                    <label>Company :</label>
+                    <input type="text" label="Company Name :" placeholder="Company" required value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
         </div>
     );

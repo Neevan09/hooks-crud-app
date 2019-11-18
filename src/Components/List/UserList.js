@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import UserContext from '../../DataModel/User/data'
 import '../App/styles.css'
 import axios from 'axios';
+import '../List/styles.css'
 
 export default function UserList() {
     const { state, dispatch } = useContext(UserContext);
@@ -31,6 +32,9 @@ export default function UserList() {
                         </li>
                     ))}
                 </ul>
+            </div>
+            <div className="card">
+                Card Style
             </div>
         </div>
     )

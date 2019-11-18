@@ -6,6 +6,7 @@ export default function Button(props) {
     <div>
       <button data-testid="button" className="button-style">
         {props.label}
+        {}
       </button>
     </div>
   );
