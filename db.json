@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Marry",
+      "lastName": "Poppins",
+      "email": "Marrypoppins@hotmail.com",
+      "state": "WV",
+      "companyName": "Orn - Kling"
+    },
+    {
+      "id": "2",
+      "firstName": "Adam",
+      "lastName": "Gilly",
+      "email": "Adam_Gilly@hotmail.com",
+      "state": "GA",
+      "companyName": "Vandervort - Hamill"
+    },
+    {
+      "id": "3",
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "email": "Harry_potter@hotmail.com",
+      "state": "GA",
+      "companyName": "Vandervort - Hamill"
+    }
+  ]
+}
